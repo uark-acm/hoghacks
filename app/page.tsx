@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 import HeroCanvas from '@/components/hero-canvas';
 import CountdownBar from '@/components/countdown-bar';
 import styles from '@/styles/home.module.css';
+import { BASE_SLUG } from './consts';
 
 const Home: NextPage = () => {
     const scrollToTop = () => {
@@ -19,7 +20,7 @@ const Home: NextPage = () => {
             <p className={'text-md lg:text-xl text-th-primary m-[15px] pressstart'}>UARK ACM Student Chapter presents...</p>
             <p className={'text-xl lg:text-4xl pressstart'}>Spring 2024 Hackathon!</p>
             <div className={styles['hero-image']}>
-                <img src="/img/hoghacks-logo.png" />
+                <img src={`${BASE_SLUG}/img/hoghacks-logo.png`} />
             </div>
             
             <button className={'bg-th-primary hover:bg-th-secondary p-5 text-lg lg:text-3xl rounded-lg mb-[20px] pressstart'}>Register Now!</button>
@@ -59,7 +60,7 @@ const Home: NextPage = () => {
                     <button className={'bg-th-primary hover:bg-th-secondary p-5 text-2xl text-white rounded-lg mt-[20px] pressstart'}>Get Directions</button>
                 </div>
                 <div className={styles['location-image']}>
-                    <img src="/img/jbht-location.png" />
+                    <img src={`${BASE_SLUG}/img/jbht-location.png`} />
                 </div>
             </div>
         </div>
