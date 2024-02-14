@@ -1,3 +1,5 @@
+'use client';
+
 interface EventScheduleProps {
     title: string;
     events: Array<{ name: string, time: string }>;

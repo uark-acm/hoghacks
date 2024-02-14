@@ -1,20 +1,8 @@
 export const colors = {
-    primary: {
-        light: '#51b2a6',
-        dark: '#51b2a6',
-    },
-    secondary: {
-        light: '#2a6370',
-        dark: '#2a6370',
-    },
-    tertiary: {
-        light: '#418e84',
-        dark: '#418e84',
-    },
-    background: {
-        light: '#cccccc',
-        dark: '#333333',
-    },
+    primary: '#51b2a6',
+    secondary: '#2a6370',
+    tertiary: '#418e84',
+    background: '#333333',
 }
 
 export const discordLink = 'https://discord.gg/shVphSrXe2';
@@ -71,5 +59,23 @@ export const day2Schedule = [
     {
         name: 'Closing Ceremony',
         time: '6:00 PM'
+    },
+];
+
+export const sponsors = [
+    {
+        name: 'Platinum',
+        color: '#e5e4e2',
+        images: ['img/sponsors/jbhunt.png']
+    },
+    {
+        name: 'Gold',
+        color: '#ffd700',
+        images: ['img/sponsors/supplypike.png']
+    },
+    {
+        name: 'Bronze',
+        color: '#cd7f32',
+        images: ['img/sponsors/netsmart.png']
     },
 ];

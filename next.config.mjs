@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const basePath = process.env.NODE_ENV === 'production' ? '/hoghacks' : '';
+import { basePath } from './helper.mjs';
 
 const nextConfig = {
     output: 'export',
