@@ -15,7 +15,7 @@
     margin: auto;
     width: auto;
     height: min(60%, 80vw);
-
+    aspect-ratio: 1/1;
     background: radial-gradient(circle, var(--primary) 0%, rgba(0, 0, 0, 0) 75%);
 }
 
