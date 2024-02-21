@@ -6,7 +6,7 @@ export const colors = {
 }
 
 export const discordLink = 'https://discord.gg/shVphSrXe2';
-export const locationLink = 'https://g.page/JBHT_Building?share';
+export const locationLink = 'https://maps.app.goo.gl/Sk4qGu88Sn4H5koB7';
 export const registrationLink = 'https://forms.gle/YambmVKF5ZLQjKYo8';
 export const mailingLink = 'https://forms.gle/gFwrFeArJmq1YCMH9';
 export const isRegistrationOpen = true;

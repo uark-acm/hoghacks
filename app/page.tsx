@@ -83,8 +83,8 @@ const Home: NextPage = () => {
                 <p className={'text-4xl mb-[10px] pressstart'}>Location</p>
                 <div className={'flex flex-row items-center ml-[40px] mr-[40px]'}>
                     <div className={'text-xl'}>
-                        <p>J.B. Hunt Transport Services Inc. Center for Academic Excellence (JBHT) - Room 216</p>
-                        <p>227 N. Harmon Ave.</p>
+                        <p>Hillside Auditorium (HILL) Room 206</p>
+                        <p>902 W Dickson St</p>
                         <p>Fayetteville, AR 72701</p>
                         <button
                             className={'bg-th-primary hover:bg-th-secondary transition-colors p-5 text-md lg:text-2xl rounded-lg mb-[20px] pressstart'}
@@ -93,7 +93,7 @@ const Home: NextPage = () => {
                         </button>
                     </div>
                     <div className={styles['location-image']}>
-                        <img src={`${basePath}/img/jbht-location.png`} />
+                        <iframe className='w-full max-w-96 aspect-square' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3225.084495124262!2d-94.17564222348403!3d36.06704310868277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c96ee74061304d%3A0x5bb6345c4e6ff9cf!2sHillside%20Auditorium!5e0!3m2!1sen!2sus!4v1708554171130!5m2!1sen!2sus" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

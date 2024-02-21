@@ -25,6 +25,9 @@
 }
 
 .location-image {
-    width: 40%;
-    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+    height: auto
 }
