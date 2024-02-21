@@ -28,17 +28,3 @@
     width: 40%;
     height: auto;
 }
-
-.footer {
-    color: theme('colors.background.light');
-    background-color: theme('colors.background.dark');
-    text-align: center;
-}
-
-@media (prefers-color-scheme: dark) {
-    .footer {
-        color: theme('colors.background.dark');
-        background-color: theme('colors.background.light');
-        text-align: center;
-    }
-}

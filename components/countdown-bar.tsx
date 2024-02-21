@@ -37,7 +37,7 @@ const CountdownBar = () => {
         background: `linear-gradient(to right, var(--tertiary) ${percentage * 100}%, var(--secondary) 0%)`
     };
 
-    return <div suppressHydrationWarning style={backgroundGradient} className={'h-[15vh] p-[25px] flex flex-col justify-center items-center text-center text-xl lg:text-3xl text-white lg:items-start pressstart'}>
+    return <div suppressHydrationWarning style={backgroundGradient} className={'h-[15vh] lg:pl-[10%] flex flex-col justify-center items-center text-center text-xl lg:text-3xl text-white lg:items-start pressstart'}>
         <p suppressHydrationWarning>{timestamp}</p>
         <p>{dateRange} <span className={'text-th-primary'}>{new Date(startDate).getFullYear()}</span></p>  
     </div>

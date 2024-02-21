@@ -19,21 +19,10 @@
 :root {
     --foreground: black;
 
-    --primary: theme('colors.primary.light');
-    --secondary: theme('colors.secondary.light');
-    --tertiary: theme('colors.tertiary.light');
-    --background: theme('colors.background.light');
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground: white;
-
-        --primary: theme('colors.primary.dark');
-        --secondary: theme('colors.secondary.dark');
-        --tertiary: theme('colors.tertiary.dark');
-        --background: theme('colors.background.dark');
-    }
+    --primary: theme('colors.primary');
+    --secondary: theme('colors.secondary');
+    --tertiary: theme('colors.tertiary');
+    --background: theme('colors.background');
 }
 
 body {
