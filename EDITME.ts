@@ -71,7 +71,7 @@ export const sponsors = [
     {
         name: 'Gold',
         color: '#ffd700',
-        images: ['img/sponsors/supplypike.png']
+        images: ['img/sponsors/supplypike.png', 'img/sponsors/arcbest.png']
     },
     {
         name: 'Bronze',
