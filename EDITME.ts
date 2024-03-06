@@ -87,6 +87,30 @@ export const sponsors = [
 
 export const faqs = [
     {
+        question: 'When do signups close?',
+        answer: 'Around April 1st @ 11:59 or after we get 200 participants, whichever comes first',
+    },
+    {
+        question: 'Do I need to come in with a team?',
+        answer: 'Nope! Whether you are going solo or have an incomplete team, we can match you with some folks at the event'
+    },
+    {
+        question: 'Who can participate?',
+        answer: 'The hackathon is open to all high school an college students!',
+    },
+    {
+        question: 'Does it cost anything?',
+        answer: 'Nope. The event is completely free to you',
+    },
+    {
+        question: 'Will there be food?',
+        answer: 'Yep! We will provide your meals and snacks',
+    },
+    {
+        question: 'Will there be swag and prizes?',
+        answer: 'Plenty of free swag for everyone (t-shirts, stickers, etc.) and prizes for the top projects!'
+    },
+    {
         question: 'How many people per team?',
         answer: '4-6 people',
     },
