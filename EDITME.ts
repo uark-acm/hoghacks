@@ -78,4 +78,32 @@ export const sponsors = [
         color: '#cd7f32',
         images: ['img/sponsors/netsmart.png', 'img/sponsors/garmin.png']
     },
+    {
+        name: 'Partners',
+        color: 'black',
+        images: [{src: 'img/sponsors/stand-out-stickers-logo.png', link: 'http://hackp.ac/mlh-StandOutStickers-hackathons'}, 'img/sponsors/mlh.png']
+    },
 ];
+
+export const faqs = [
+    {
+        question: 'How many people per team?',
+        answer: '4-6 people',
+    },
+    {
+        question: 'Can I have grad students on my team?',
+        answer: 'Yes, 1-2',
+    },
+    {
+        question: 'Do I need to know how to make a website?',
+        answer: 'Strongly encouraged, but we will have a TON of workshops to teach you!',
+    },
+    {
+        question: 'Can I use a pre-existing project?',
+        answer: 'For hackathons, at least 90% of the code you write should be at the hackathon!',
+    },
+    {
+        question: 'Where will I sleep?',
+        answer: 'The building for the hackathon is open 24 hours, but you do NOT have to be present the entirety of the event. Feel free to book a local hotel if you would like',
+    },
+]

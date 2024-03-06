@@ -8,6 +8,7 @@ import CountdownBar from '@/components/countdown-bar';
 import EventSchedule from '@/components/event-schedule';
 import styles from '@/styles/home.module.css';
 import SponsorBar from '@/components/sponsor-bar';
+import { FAQ } from '@/components/faq';
 
 const Home: NextPage = () => {
     const scrollToTop = () => {
@@ -98,8 +99,14 @@ const Home: NextPage = () => {
                 </div>
             </div>
 
-            {/* ~~~~~ Sponsors ~~~~~ */}
+            {/* ~~~~~ FAQ ~~~~~ */}
             <div className={'p-[25px] bg-th-primary mb-[25px]'}>
+            <p className={'text-4xl mb-[10px] pressstart'}>FAQ</p>
+            <FAQ />
+            </div>
+
+            {/* ~~~~~ Sponsors ~~~~~ */}
+            <div className={'p-[25px] mb-[25px]'}>
                 <p className={'text-2xl lg:text-4xl text-white text-center lg:text-start mb-[25px] pressstart'}>Thank You to our Sponsors!</p>
                 <SponsorBar />
             </div>

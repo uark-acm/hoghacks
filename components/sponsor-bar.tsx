@@ -3,6 +3,9 @@
 import { sponsors } from '@/EDITME';
 import { basePath } from '@/helper.mjs';
 
+//TODO: pretty hacky fix for images with links, might want to add something else
+
+//TODO: add in some scaling for the images
 
 const SponsorBar = () => {
     return <div className={'flex flex-col text-white text-center'}>
@@ -13,7 +16,7 @@ const SponsorBar = () => {
                     <div className={'flex flex-col lg:flex-row items-center lg:justify-center p-[25px]'}>
                         {
                             tier.images.map(image => {
-                                return <img className={'max-w-[66%] lg:max-w-[33%]'} src={`${basePath}/${image}`} key={`image-${image}`} />
+                                return typeof image === 'string' ? <img className={'max-w-[66%] lg:max-w-[33%]'} src={`${basePath}/${image}`} key={`image-${image}`} /> :  <a className={'max-w-[66%] lg:max-w-[33%]'} href={image.link}><img src={`${basePath}/${image.src}`} key={`image-${image.src}`} /></a>
                             })
                         }
                     </div>
