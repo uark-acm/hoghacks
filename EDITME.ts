@@ -76,6 +76,6 @@ export const sponsors = [
     {
         name: 'Bronze',
         color: '#cd7f32',
-        images: ['img/sponsors/netsmart.png']
+        images: ['img/sponsors/netsmart.png', 'img/sponsors/garmin.png']
     },
 ];

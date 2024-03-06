@@ -108,6 +108,7 @@ const Home: NextPage = () => {
         {/* ~~~~~ Footer ~~~~~ */}
         <div className={'bg-[#cccccc] text-th-background text-center'}>
             <p className={'text-s lg:text-xl mb-[10px] pressstart'}>For other questions, ask on the <a href={discordLink} className={'text-th-primary'}>Discord</a>!</p>
+            <p className='text-s lg:text-xl text-blue-500 underline'><a href='http://hackp.ac/coc'>MLH Code of Conduct</a></p>
             <a onClick={scrollToTop} className={'text-s lg:text-xl mb-[10px] hover:cursor-pointer pressstart'}>Back To Top ▲</a>
         </div>
     </>
