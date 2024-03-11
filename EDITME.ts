@@ -74,6 +74,11 @@ export const sponsors = [
         images: ['img/sponsors/supplypike.png', 'img/sponsors/arcbest.png']
     },
     {
+        name: 'Silver',
+        color: '#c0c0c0',
+        images: ['img/sponsors/oei.png']
+    },
+    {
         name: 'Bronze',
         color: '#cd7f32',
         images: ['img/sponsors/netsmart.png', 'img/sponsors/garmin.png']
