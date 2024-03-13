@@ -20,8 +20,10 @@ const RootLayout = ({
 }>) => {
     return (
         <html lang={'en'}>
-            
-            <body><div><a id="mlh-trust-badge" href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2024-season&utm_content=white" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2024/mlh-trust-badge-2024-gray.svg" alt="Major League Hacking 2024 Hackathon Season" /></a></div>{children}</body>
+            <body>
+                <div>
+                    <a id="mlh-trust-badge" className='right-0 md:right-[50px]' href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2024-season&utm_content=white" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2024/mlh-trust-badge-2024-gray.svg" alt="Major League Hacking 2024 Hackathon Season" /></a>
+                    </div>{children}</body>
         </html>
     );
 }

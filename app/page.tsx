@@ -37,7 +37,7 @@ const Home: NextPage = () => {
         <div className={styles['hero-section']}>
             <HeroCanvas />
 
-            <p className={'text-4xl lg:text-5xl mt-[25px] pressstart'}>HogHacks</p>
+            <p className={'text-3xl lg:text-5xl mt-[25px] pressstart'}>HogHacks</p>
             <p className={'text-md lg:text-xl text-th-primary m-[15px] pressstart'}>UARK ACM Student Chapter presents...</p>
             <p className={'text-xl lg:text-4xl pressstart'}>{hackathonSeason} Hackathon!</p>
             <div className={styles['hero-image']}>
