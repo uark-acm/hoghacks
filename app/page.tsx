@@ -103,7 +103,7 @@ const Home: NextPage = () => {
                     <div className={'text-xl'}>
                         {
                             locationInformation.map(line => {
-                                return <p>{line}</p>
+                                return <p key={line.substring(0, 10)}>{line}</p>
                             })
                         }
                         <button
