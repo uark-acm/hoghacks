@@ -27,7 +27,7 @@
 .location-image {
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
     width: 100%;
     height: auto
 }

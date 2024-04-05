@@ -1,8 +1,19 @@
+/**
+ * app/page.tsx
+ * 
+ * This page handles the judge's side of things where they can judge different projects and we can compile all the data to find the final results
+ * 
+ * This also handles an admin to create projects and assign judges without need to manually edit the Firebase database
+ * 
+ * Author: Alex Prosser, Jack Norris
+ * Date: 4/4/2024
+ */
+
 'use client';
 
 import { NextPage } from 'next';
 import { basePath } from '@/helper.mjs';
-import { day1Schedule, day2Schedule, isRegistrationOpen, locationLink, mailingLink, registrationLink, discordLink, startDate, endDate } from '@/EDITME';
+import { day1Schedule, day2Schedule, isRegistrationOpen, locationLink, mailingLink, registrationLink, discordLink, startDate, endDate, mapLocation, locationInformation } from '@/EDITME';
 import HeroCanvas from '@/components/hero-canvas';
 import CountdownBar from '@/components/countdown-bar';
 import EventSchedule from '@/components/event-schedule';
@@ -33,6 +44,11 @@ const Home: NextPage = () => {
     });
 
     return <>
+        {/* ~~~~~ MLH Banner ~~~~~ */}
+        <div>
+            <a id="mlh-trust-badge" className='right-0 md:right-[50px]' href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2024-season&utm_content=white" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2024/mlh-trust-badge-2024-gray.svg" alt="Major League Hacking 2024 Hackathon Season" /></a>
+        </div>
+        
         {/* ~~~~~ Hero Section ~~~~~ */}
         <div className={styles['hero-section']}>
             <HeroCanvas />
@@ -74,19 +90,22 @@ const Home: NextPage = () => {
             {/* ~~~~~ Event Schedule ~~~~~ */}
             <div className={'p-[25px] bg-th-primary'}>
                 <p className={'text-2xl lg:text-4xl text-white text-center lg:text-start mb-[25px] pressstart'}>Event Schedule</p>
-                <div className={'flex flex-col lg:flex-row justify-around ml-[15%] mr-[15%]'}>
+                <div className={'flex flex-col lg:flex-row justify-around'}>
                     <EventSchedule title={day1Name} events={day1Schedule} />
                     <EventSchedule title={day2Name} events={day2Schedule} />
                 </div>
             </div>
 
+            {/* ~~~~~ Location ~~~~~ */}
             <div className={'p-[25px]'}>
                 <p className={'text-4xl mb-[10px] pressstart'}>Location</p>
                 <div className={'flex flex-row items-center ml-[40px] mr-[40px]'}>
                     <div className={'text-xl'}>
-                        <p>Hillside Auditorium (HILL) Room 206</p>
-                        <p>902 W Dickson St</p>
-                        <p>Fayetteville, AR 72701</p>
+                        {
+                            locationInformation.map(line => {
+                                return <p>{line}</p>
+                            })
+                        }
                         <button
                             className={'bg-th-primary hover:bg-th-secondary transition-colors p-5 text-md lg:text-2xl rounded-lg mb-[20px] pressstart'}
                             onClick={goToLink(locationLink)}>
@@ -94,15 +113,15 @@ const Home: NextPage = () => {
                         </button>
                     </div>
                     <div className={styles['location-image']}>
-                        <iframe className='w-full max-w-96 aspect-square' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3225.084495124262!2d-94.17564222348403!3d36.06704310868277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c96ee74061304d%3A0x5bb6345c4e6ff9cf!2sHillside%20Auditorium!5e0!3m2!1sen!2sus!4v1708554171130!5m2!1sen!2sus" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe className='w-full max-w-96 aspect-square' src={mapLocation} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
 
             {/* ~~~~~ FAQ ~~~~~ */}
             <div className={'p-[25px] bg-th-primary mb-[25px]'}>
-            <p className={'text-4xl mb-[10px] pressstart'}>FAQ</p>
-            <FAQ />
+                <p className={'text-4xl mb-[10px] pressstart'}>FAQ</p>
+                <FAQ />
             </div>
 
             {/* ~~~~~ Sponsors ~~~~~ */}
@@ -113,9 +132,9 @@ const Home: NextPage = () => {
         </div>
 
         {/* ~~~~~ Footer ~~~~~ */}
-        <div className={'bg-[#cccccc] text-th-background text-center'}>
-            <p className={'text-s lg:text-xl mb-[10px] pressstart'}>For other questions, ask on the <a href={discordLink} className={'text-th-primary'}>Discord</a>!</p>
-            <p className='text-s lg:text-xl text-blue-500 underline'><a href='http://hackp.ac/coc'>MLH Code of Conduct</a></p>
+        <div className={'bg-th-primary text-white text-center'}>
+            <p className={'text-s lg:text-xl mb-[10px] pressstart'}>For other questions, ask on the <a href={discordLink} className={'text-th-secondary'}>Discord</a>!</p>
+            <p className='text-s lg:text-xl text-th-secondary pressstart'><a href='http://hackp.ac/coc'>MLH Code of Conduct</a></p>
             <a onClick={scrollToTop} className={'text-s lg:text-xl mb-[10px] hover:cursor-pointer pressstart'}>Back To Top ▲</a>
         </div>
     </>
