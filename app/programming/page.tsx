@@ -79,7 +79,7 @@ const ProgrammingContestPage: NextPage = () => {
             <p className={'text-xl text-white text-center pressstart'}>Test #1</p>
             <br />
 
-            <p>The first step, of course, is to build the scoreboard! Lots of technical advances means that you don't have to
+            <p>The first step, of course, is to build the scoreboard! Lots of technical advances means that you don&apos;t have to
             physically build the screen <abbr title={'you sadly put your crane away thinking when you will ever have a chance to use it'}>itself</abbr>.
             However, the screen sizes are not standard and overlap each other at some places, so you must figure out the total area
             that the screen takes up after installing. In the input, you have a list of rectangles that are defined by two
@@ -88,7 +88,7 @@ const ProgrammingContestPage: NextPage = () => {
             <br />
 
             <p>Each rectangle will be grid aligned and placed on positive integer spaces
-            which means no floating points or rotations. Also, the grid doesn't have defined dimensions. For example:</p>
+            which means no floating points or rotations. Also, the grid doesn&apos;t have defined dimensions. For example:</p>
             <ul className={'text-center'}>
                 <li>(2,2) (9,3)</li>
                 <li>(2,0) (5,2)</li>
@@ -114,7 +114,7 @@ const ProgrammingContestPage: NextPage = () => {
                 <li>. . . . . . . . . . .</li>
             </ul>
             <br />
-            <p className={'text-lg text-white text-center mb-[25px]'}>Given the screens' dimensions, what is the total area that the scoreboard will take up?</p>
+            <p className={'text-lg text-white text-center mb-[25px]'}>Given the screens&apos; dimensions, what is the total area that the scoreboard will take up?</p>
         </>,
         <>
             {/* ~~~~~ Test 2 ~~~~~ */}
@@ -158,11 +158,11 @@ const ProgrammingContestPage: NextPage = () => {
             <p className={'text-lg text-white text-center'}>Please read everything below before you get started!</p>
             <br />
 
-            <p>Welcome, <b>young intern</b>! You have been placed in charged of installing the local sportsball team's scoreboard.
+            <p>Welcome, <b>young intern</b>! You have been placed in charged of installing the local sportsball team&apos;s scoreboard.
             They have entrusted us, the <i>Abbreviated Cereal Mooples</i>, to correctly build and test the scoreboard with
-            no error or mistakes. So that is why we put all the effort and responsibility on you specifically! Don't worry,
-            since this isn't the first time we are doing this, we have a series of <b>3</b> tests that we run to
-            make sure that you are not messing up. To make sure that we don't get in trouble with any FCC or sports league's
+            no error or mistakes. So that is why we put all the effort and responsibility on you specifically! Don&apos;t worry,
+            since this isn&apos;t the first time we are doing this, we have a series of <b>3</b> tests that we run to
+            make sure that you are not messing up. To make sure that we don&apos;t get in trouble with any FCC or sports league&apos;s
             rulings, here are some rules to follow:</p>
             <br />
 
@@ -175,13 +175,13 @@ const ProgrammingContestPage: NextPage = () => {
             </ul>
             <br />
 
-            <p className={'text-lg text-white text-center'}>Without further ado, let's specify the tests!</p>
+            <p className={'text-lg text-white text-center'}>Without further ado, let&apos;s specify the tests!</p>
             <br />
         </div>
         
         {
             completed && <>
-                <p className={'text-xl text-th-primary text-center pressstart ml-[15%] mr-[15%]'}>You have completed the contest! Please DM "Programming Pancakes" to Alex Prosser on Discord to claim your team's prize!</p>
+                <p className={'text-xl text-th-primary text-center pressstart ml-[15%] mr-[15%]'}>You have completed the contest! Please DM &quot;Programming Pancakes&quot; to Alex Prosser on Discord to claim your team&apos;s prize!</p>
             </>
         }
         
