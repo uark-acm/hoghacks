@@ -165,7 +165,7 @@ const ProgrammingContestPage: NextPage = () => {
             The test checks for a screen of <abbr title={'what an odd size for a screen to be, I wonder why?'}>56 bulbs by 7 bulbs</abbr> which
             has all the bulbs off to start with, and it all runs automatically. Using the controller API specified below, you can also check to
             see if the screen is working or not. The test consists of a list of commands telling to turn on or off a specific bulb. The first command
-            is 'turn on (x, y)', which turns the bulb at point (x, y) on. The second command is 'turn off (x, y)', which turns the bulb at (x, y)
+            is &apos;turn on (x, y)&apos;, which turns the bulb at point (x, y) on. The second command is &apos;turn off (x, y)&apos;, which turns the bulb at (x, y)
             off. The grid is laid out where the top left is the origin, positive x is right, and positive y is down.
             For example (assuming the grid is 6x6 for now):</p>
             <br />
