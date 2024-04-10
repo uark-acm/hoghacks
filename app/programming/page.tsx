@@ -12,7 +12,7 @@ import { parseCookies, writeCookies } from '@/src/utils';
 import { NextPage } from 'next';
 import { useState, useEffect, use } from 'react';
 
-const test1Answers = [792584, 797727, 792964, 792534, 792088, 793803, 792518, 792601, 794884, 796491, 794380, 794357, 795110, 794369, 792778, 796420, 795314, 792619, 795510, 792664, 793223, 794697, 794944, 792146, 795213, 790224, 794011, 795137, 793672, 794991, 795160, 794020, 793374, 794248, 794881, 791621, 795553, 793935, 796576, 792807, 797007, 795893, 796219, 794857, 793529, 792504, 791299, 794905, 796687, 795258, 794274, 792423, 794115, 794998, 792304, 793804, 794593, 796357, 795821, 793739, 794199, 795798, 794884, 795877, 794788, 794100, 793793, 791605, 795740, 795904, 791571, 796129, 795334, 791667, 791984, 793234, 792357, 793697, 792194, 792368, 795161, 794056, 797664, 790498, 792856, 794884, 797384, 790201, 794668, 793117, 793653, 793213, 795455, 793385, 795608, 794913, 795441, 795439, 793900, 794742]; 
+const imageData = 'W1s3OTI1ODQsNzk3NzI3LDc5Mjk2NCw3OTI1MzQsNzkyMDg4LDc5MzgwMyw3OTI1MTgsNzkyNjAxLDc5NDg4NCw3OTY0OTEsNzk0MzgwLDc5NDM1Nyw3OTUxMTAsNzk0MzY5LDc5Mjc3OCw3OTY0MjAsNzk1MzE0LDc5MjYxOSw3OTU1MTAsNzkyNjY0LDc5MzIyMyw3OTQ2OTcsNzk0OTQ0LDc5MjE0Niw3OTUyMTMsNzkwMjI0LDc5NDAxMSw3OTUxMzcsNzkzNjcyLDc5NDk5MSw3OTUxNjAsNzk0MDIwLDc5MzM3NCw3OTQyNDgsNzk0ODgxLDc5MTYyMSw3OTU1NTMsNzkzOTM1LDc5NjU3Niw3OTI4MDcsNzk3MDA3LDc5NTg5Myw3OTYyMTksNzk0ODU3LDc5MzUyOSw3OTI1MDQsNzkxMjk5LDc5NDkwNSw3OTY2ODcsNzk1MjU4LDc5NDI3NCw3OTI0MjMsNzk0MTE1LDc5NDk5OCw3OTIzMDQsNzkzODA0LDc5NDU5Myw3OTYzNTcsNzk1ODIxLDc5MzczOSw3OTQxOTksNzk1Nzk4LDc5NDg4NCw3OTU4NzcsNzk0Nzg4LDc5NDEwMCw3OTM3OTMsNzkxNjA1LDc5NTc0MCw3OTU5MDQsNzkxNTcxLDc5NjEyOSw3OTUzMzQsNzkxNjY3LDc5MTk4NCw3OTMyMzQsNzkyMzU3LDc5MzY5Nyw3OTIxOTQsNzkyMzY4LDc5NTE2MSw3OTQwNTYsNzk3NjY0LDc5MDQ5OCw3OTI4NTYsNzk0ODg0LDc5NzM4NCw3OTAyMDEsNzk0NjY4LDc5MzExNyw3OTM2NTMsNzkzMjEzLDc5NTQ1NSw3OTMzODUsNzk1NjA4LDc5NDkxMyw3OTU0NDEsNzk1NDM5LDc5MzkwMCw3OTQ3NDJdLFsiYWVyb2JpY3MiLCJiYXNlYmFsbCIsImNyb3NzZml0IiwiZHVtYmJlbGwiLCJmb290YmFsbCIsImhhbmRiYWxsIiwiaW50ZXJ2YWwiLCJrYXlha2luZyIsIm1hcmF0aG9uIiwib2x5bXBpY3MiLCJzd2ltbWluZyIsInNwcmludGVyIiwidGFja2xpbmciLCJzdHJldGNoeSIsImJhY2toYW5kIiwib3ZlcmhhbmQiLCJzaWRla2ljayIsImZyZWVraWNrIiwiaGVhZGdlYXIiLCJvdXRmaWVsZCIsImV4ZXJjaXNlIiwiYmFyYmVsbHMiLCJkaXN0YW5jZSIsImFjdGl2aXR5IiwicmVhY3Rpb24iLCJzdGFuZG91dCIsInN0cmF0ZWd5IiwidHJhaW5lcnMiLCJzaG9vdGluZyIsInBhc3NwbGF5Iiwic2xhbWR1bmsiLCJiYWNrc3BpbiIsImZyb250bWFuIiwiZ29hbHBvc3QiLCJob21lYmFzZSIsImp1bXByb3BlIiwia2lja2ZsaXAiLCJsaW5lc21hbiIsIm1hdGNoZGF5Iiwib3ZlcmdyaXAiLCJyZWJvdW5kcyIsImp1bXBzaG90IiwiZ29hbGtlZXAiLCJ5b2dhbGluZSIsInJpbmdzaWRlIiwiYWVyb2JpY3MiLCJiYXNlYmFsbCIsImNyb3NzZml0IiwiZHVtYmJlbGwiLCJmb290YmFsbCIsImhhbmRiYWxsIiwiaW50ZXJ2YWwiLCJrYXlha2luZyIsIm1hcmF0aG9uIiwib2x5bXBpY3MiLCJzd2ltbWluZyIsInNwcmludGVyIiwidGFja2xpbmciLCJzdHJldGNoeSIsImJhY2toYW5kIiwib3ZlcmhhbmQiLCJzaWRla2ljayIsImZyZWVraWNrIiwiaGVhZGdlYXIiLCJvdXRmaWVsZCIsImV4ZXJjaXNlIiwiYmFyYmVsbHMiLCJkaXN0YW5jZSIsImFjdGl2aXR5IiwicmVhY3Rpb24iLCJzdGFuZG91dCIsInN0cmF0ZWd5IiwidHJhaW5lcnMiLCJzaG9vdGluZyIsInBhc3NwbGF5Iiwic2xhbWR1bmsiLCJiYWNrc3BpbiIsImZyb250bWFuIiwiZ29hbHBvc3QiLCJob21lYmFzZSIsImp1bXByb3BlIiwia2lja2ZsaXAiLCJsaW5lc21hbiIsIm1hdGNoZGF5Iiwib3ZlcmdyaXAiLCJyZWJvdW5kcyIsImp1bXBzaG90IiwiZ29hbGtlZXAiLCJ5b2dhbGluZSIsInJpbmdzaWRlIiwiaG9tZWJhc2UiLCJqdW1wcm9wZSIsImtpY2tmbGlwIiwibGluZXNtYW4iLCJtYXRjaGRheSIsIm92ZXJncmlwIiwicmVib3VuZHMiLCJqdW1wc2hvdCIsImdvYWxrZWVwIiwieW9nYWxpbmUiXSxbImJhc2ViYWxsIiwiY3Jvc3NmaXQiLCJkdW1iYmVsbCIsImZvb3RiYWxsIiwiaGFuZGJhbGwiLCJpbnRlcnZhbCIsImtheWFraW5nIiwibWFyYXRob24iLCJvbHltcGljcyIsInN3aW1taW5nIiwic3ByaW50ZXIiLCJ0YWNrbGluZyIsInN0cmV0Y2h5IiwiYmFja2hhbmQiLCJvdmVyaGFuZCIsInNpZGVraWNrIiwiZnJlZWtpY2siLCJoZWFkZ2VhciIsIm91dGZpZWxkIiwiZXhlcmNpc2UiLCJiYXJiZWxscyIsImRpc3RhbmNlIiwiYWN0aXZpdHkiLCJyZWFjdGlvbiIsInN0YW5kb3V0Iiwic3RyYXRlZ3kiLCJ0cmFpbmVycyIsInNob290aW5nIiwicGFzc3BsYXkiLCJzbGFtZHVuayIsImJhY2tzcGluIiwiZnJvbnRtYW4iLCJnb2FscG9zdCIsImhvbWViYXNlIiwianVtcHJvcGUiLCJraWNrZmxpcCIsImxpbmVzbWFuIiwibWF0Y2hkYXkiLCJvdmVyZ3JpcCIsInJlYm91bmRzIiwianVtcHNob3QiLCJnb2Fsa2VlcCIsInlvZ2FsaW5lIiwicmluZ3NpZGUiLCJhZXJvYmljcyIsImJhc2ViYWxsIiwiY3Jvc3NmaXQiLCJkdW1iYmVsbCIsImZvb3RiYWxsIiwiaGFuZGJhbGwiLCJpbnRlcnZhbCIsImtheWFraW5nIiwibWFyYXRob24iLCJvbHltcGljcyIsInN3aW1taW5nIiwic3ByaW50ZXIiLCJ0YWNrbGluZyIsInN0cmV0Y2h5IiwiYmFja2hhbmQiLCJvdmVyaGFuZCIsInNpZGVraWNrIiwiZnJlZWtpY2siLCJoZWFkZ2VhciIsIm91dGZpZWxkIiwiZXhlcmNpc2UiLCJiYXJiZWxscyIsImRpc3RhbmNlIiwiYWN0aXZpdHkiLCJyZWFjdGlvbiIsInN0YW5kb3V0Iiwic3RyYXRlZ3kiLCJ0cmFpbmVycyIsInNob290aW5nIiwicGFzc3BsYXkiLCJzbGFtZHVuayIsImJhY2tzcGluIiwiZnJvbnRtYW4iLCJnb2FscG9zdCIsImhvbWViYXNlIiwianVtcHJvcGUiLCJraWNrZmxpcCIsImxpbmVzbWFuIiwibWF0Y2hkYXkiLCJvdmVyZ3JpcCIsInJlYm91bmRzIiwianVtcHNob3QiLCJnb2Fsa2VlcCIsInlvZ2FsaW5lIiwicmluZ3NpZGUiLCJob21lYmFzZSIsImp1bXByb3BlIiwia2lja2ZsaXAiLCJsaW5lc21hbiIsIm1hdGNoZGF5Iiwib3ZlcmdyaXAiLCJyZWJvdW5kcyIsImp1bXBzaG90IiwiZ29hbGtlZXAiLCJ5b2dhbGluZSIsImFlcm9iaWNzIl1d';
 
 const ProgrammingContestPage: NextPage = () => {
     // The data attached to the user stored in the cookie
@@ -53,7 +53,7 @@ const ProgrammingContestPage: NextPage = () => {
     const submitAnswer = () => {
         setFeedback('Submitting...');
         setTimeout(() => {
-            if (userData !== undefined && [test1Answers, test1Answers, test1Answers][stage][userData.id] == parseInt(answer)) {
+            if (userData !== undefined && JSON.parse(atob(imageData))[stage][userData.id] == parseInt(answer)) {
                 const completed = [userData.completed[0], userData.completed[1], userData.completed[2]];
                 completed[stage] = true;
     
@@ -125,9 +125,30 @@ const ProgrammingContestPage: NextPage = () => {
                 <p>Great! Now that you have a big wall of pixels up, it is time to do something with them. The scoreboard uses a
                 cryptic way of transporting the data from the controller to the actual screen, but luckily the code is already written
                 for you. Each packet is sent as a string of letters, which can be sent and received by the system. For some reason, the company
-                we contracted decided to send 10000 packets per message to the screen and the message sent is decided by searching each position
-                for the least common letter. This is confusing so we have attached an example request. To confirm the connections work,
-                you need to make sure the right message shows up. For example:</p>
+                we contracted decided to send 1000 packets per message to the screen and the message sent is decided by searching each position
+                for the most common letter. This is <abbr title={'why did we even contract another company, we could do it ourselves!'}>confusing</abbr> so
+                we have attached an example request. To confirm the connections work, you need to make sure the right message shows up. For example:</p>
+                <br />
+
+                <ul className={'text-center'}>
+                    <li>pjrl</li>
+                    <li>tall</li>
+                    <li>fulx</li>
+                    <li>mjha</li>
+                    <li>brmn</li>
+                    <li>yakl</li>
+                    <li>sjut</li>
+                    <li>bzlx</li>
+                    <li>kacd</li>
+                    <li>badp</li>
+                </ul>
+                <br />
+
+                <p>The first column has a letter frequency of [p: 1, t: 1, f: 1, m: 1, b: 3: y: 1, s: 1, k: 1], which means that the first letter is b.
+                If you were to do the same for the next three columns, shown below, you would get the word &apos;ball&apos;:</p>
+                <p>Column 2: [j: 3, a: 4, u: 1, r: 1, z: 1] -&gt; a</p>
+                <p>Column 3: [r: 1, l: 3, h: 1, m: 1, k: 1, u: 1, c: 1, d: 1] -&gt; l</p>
+                <p>Column 4: [l: 3, x: 1, a: 1, n: 1, t: 1, x: 1, d: 1, p: 1] -&gt; l</p>
                 <br />
 
                 <p className={'text-lg text-white text-center mb-[25px]'}>What is the word that shows up when searching for the least common letters?</p>
@@ -141,9 +162,47 @@ const ProgrammingContestPage: NextPage = () => {
 
             <p>Now that we have everything connected, it is time to run a full test on the system. This means that we need to check every
             pixel to see if any bulb or connection is busted. Thankfully, you can use the test that we have for these types of screens.
-            The test checks for a screen of 100 bulbs by 80 bulbs, and it all runs automatically. Using the controller API specified below,
-            you can also check to see if the screen is working or not. The test consists of a list of commands telling to turn on or off a
-            specific bulb. The grid is laid out where the top left is the origin, positive x is right, and positive y is down. For example:</p>
+            The test checks for a screen of <abbr title={'what an odd size for a screen to be, I wonder why?'}>56 bulbs by 7 bulbs</abbr> which
+            has all the bulbs off to start with, and it all runs automatically. Using the controller API specified below, you can also check to
+            see if the screen is working or not. The test consists of a list of commands telling to turn on or off a specific bulb. The first command
+            is 'turn on (x, y)', which turns the bulb at point (x, y) on. The second command is 'turn off (x, y)', which turns the bulb at (x, y)
+            off. The grid is laid out where the top left is the origin, positive x is right, and positive y is down.
+            For example (assuming the grid is 6x6 for now):</p>
+            <br />
+
+            <ul className={'text-center'}>
+                <li>turn on (4,1)</li>
+                <li>turn on (5,5)</li>
+                <li>turn on (0,5)</li>
+                <li>turn on (2,2)</li>
+                <li>turn on (3,2)</li>
+                <li>turn on (0,0)</li>
+                <li>turn on (5,0)</li>
+                <li>turn off (1,3)</li>
+                <li>turn on (4,5)</li>
+                <li>turn off (4,5)</li>
+                <li>turn on (1,1)</li>
+                <li>turn on (3,3)</li>
+                <li>turn on (2,3)</li>
+                <li>turn on (4,4)</li>
+                <li>turn on (1,4)</li>
+                <li>turn on (1,3)</li>
+                <li>turn on (1,0)</li>
+                <li>turn off (1,0)</li>
+            </ul>
+            <br />
+
+            <p>Running these commands will produce this output:</p>
+            <br />
+
+            <ul className={'text-center'}>
+                <li>X....X</li>
+                <li>.X..X.</li>
+                <li>..XX..</li>
+                <li>..XX..</li>
+                <li>.X..X.</li>
+                <li>X....X</li>
+            </ul>
             <br />
 
             <p className={'text-lg text-white text-center mb-[25px]'}>What is displayed when all the instructions are done?</p>
