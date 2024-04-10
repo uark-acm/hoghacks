@@ -20,6 +20,7 @@ import { useState, useEffect } from 'react';
 import { User, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, collection, getDoc, getDocs, DocumentData } from 'firebase/firestore';
 import app from '@/src/firebase_utils';
+import JudgingPanel from '@/components/judging-panel';
 import Login from '@/components/login';
 
 const auth = getAuth(app);
@@ -31,6 +32,8 @@ const JudgingPage: NextPage = () => {
 
     // The data attached to the user stored in the Firestore
     const [userData, setUserData] = useState<Record<string, any>>();
+
+    const [loaded, setLoaded] = useState(false);
 
     // Callback to be ran when a user attempts to login, just tries to authorize with email and password
     const onLogin = (email: string, password: string, setError: (error: string) => void) => {
@@ -88,6 +91,7 @@ const JudgingPage: NextPage = () => {
                 });
             }
 
+            setLoaded(true);
             setUserData(data);
             console.log(data);
         } else {
@@ -102,30 +106,53 @@ const JudgingPage: NextPage = () => {
             // if no user is found, we have signed out, so update state
             if (!user) {
                 setUser(undefined);
+                setLoaded(true);
                 return;
             }
             
             // else, we have data to display
             setUser(user);
+            setLoaded(false);
             updateUserData(user.uid);
         });
         return unsubscribe;
     }, []);
 
     // ~~~~~ the actual JSX ~~~~~
-    if (user !== undefined) { // logged in
-        return <div className={'text-white'}>
-            {userData ? userData.name : 'Loading...'}
-            <button
-                className={'bg-th-primary hover:bg-th-secondary transition-colors p-3 text-md lg:text-xl rounded-lg mb-[20px] pressstart'}
-                onClick={() => { auth.signOut() }}>
-                Sign Out
-            </button>
-        </div>
-    } else { // not logged in
+    if (!loaded) {
         return <>
-            <Login onLogin={onLogin} />
+            <div className={'flex justify-center items-center h-screen'}>
+                <p className={'text-3xl pressstart text-white'}>Loading...</p>
+            </div>
         </>
+    } else {
+        if (user !== undefined) {
+            // you are logged in
+            return <>
+                {/* ~~~~~ Account Bar ~~~~~ */}
+                <div className={'flex text-white items-center justify-end p-5'}>
+                    <p>{userData?.name}</p>
+                    <button
+                        className={'bg-th-primary hover:bg-th-secondary transition-colors p-2 text-lg rounded-lg pressstart'}
+                        onClick={() => { auth.signOut() }}>
+                        Sign Out
+                    </button>
+                </div>
+
+                {/* ~~~~~ Main View ~~~~~ */}
+                <div className={'flex flex-col text-white items-center justify-center p-5 w-[80%] m-auto'}>
+                    <p className={'lg:text-3xl mb-[25px] pressstart'}>Projects</p>
+                    <JudgingPanel title={'Example Project'} description={'This is a small description that could be cutoff if needed to'} scores={[1, 2, 3, 4]}/>
+                </div>
+            </>
+        } else {
+            // you are not logged in
+            return <>
+                <div className={'flex justify-center items-center h-screen'}>
+                    <Login onLogin={onLogin} />
+                </div>
+            </>
+        }
     }
 }
 
