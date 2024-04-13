@@ -112,6 +112,7 @@ const ProjectPanel = ({ projectID }: ProjectPanelProps) => {
             isEditing && <div id={'outside'} className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center" onClick={e => { if (outsideModal(e)) saveChanges() }}>
                 <div className="bg-th-primary p-4 w-[80%] h-[80%] flex flex-col justify-between items-center text-white">
                     <p className={'pressstart text-2xl text-center'}>Project Editor</p>
+                    <p className={'text-xl text-center'}>{projectID}</p>
                     
                     <div className={'flex flex-row flex-1 items-center justify-between w-[90%] h-full'}>
                         <div className={'flex flex-col flex-1 items-center justify-between h-[50%]'}>
