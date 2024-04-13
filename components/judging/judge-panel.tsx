@@ -10,6 +10,7 @@ interface JudgePanelProps {
 
 const JudgePanel = ({ judgeID }: JudgePanelProps) => {
     const [name, setName] = useState<string>('');
+    const [room, setRoom] = useState<number>();
     const [projects, setProjects] = useState<string[]>([]);
     const [newProject, setNewProject] = useState<string>('');
     const [isEditing, setEditing] = useState<boolean>(false);
@@ -24,13 +25,19 @@ const JudgePanel = ({ judgeID }: JudgePanelProps) => {
         if (!isUpdated) return;
 
         updateDoc(judgeRef, {
-            name: name
+            name: name,
+            room: room
         });
     }
 
     const updateName = (name: string) => {
         setUpdated(true);
         setName(name);
+    }
+
+    const updateRoom = (room: number) => {
+        setUpdated(true);
+        setRoom(room);
     }
 
     const outsideModal = (event: any) => {
@@ -64,6 +71,7 @@ const JudgePanel = ({ judgeID }: JudgePanelProps) => {
         const fetchData = async () => {
             const judgeData = (await getDoc(judgeRef)).data();
             setName(judgeData?.name);
+            setRoom(judgeData?.room);
 
             const projects = await getDocs(collection(firestore, 'accounts', judgeID, 'projects'));
             if (!projects.empty) setProjects(projects.docs.map(doc => doc.id));
@@ -91,7 +99,10 @@ const JudgePanel = ({ judgeID }: JudgePanelProps) => {
                     <div className={'flex flex-row flex-1 items-center justify-between w-[90%] h-full'}>
                         <div className={'flex flex-col flex-1 items-center justify-between h-[50%]'}>
                             <input type={'text'} className={'text-black mb-[10px] w-[300px]'} value={name} placeholder={'Judge Name...'} onChange={event => updateName(event.target.value)} />
-                            <p className={'pressstart text-lg text-center'}>Projects</p>
+                            <input type={'text'} className={'text-black mb-[10px] w-[300px]'} value={room} placeholder={'Room Number...'} onChange={event => updateRoom(parseInt(event.target.value))} />
+                        </div>
+                        <div className={'flex flex-col flex-1 items-center justify-between'}>
+                        <p className={'pressstart text-lg text-center'}>Projects</p>
                             <input type={'text'} className={'text-black mb-[10px] w-[300px]'} value={newProject} placeholder={'New Project ID...'} onChange={event => setNewProject(event.target.value)} />
                             <button onClick={addProject}>+</button>
                             <ul>
