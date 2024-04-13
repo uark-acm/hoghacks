@@ -30,10 +30,10 @@ const ScavengerHuntPage = () => {
     }
 
     const getHint = () => {
-        if (getUnobfuscated() == 'S') return <p>&quot;it will only take x steps to get to me&quot; - P</p>;
+        if (getUnobfuscated() == 'S') return <p>&quot;it will only take 57 steps to get to me&quot; - P</p>;
         if (getUnobfuscated() == 'P') return <p>&quot;(x, y + 10) marks the spot&quot; - O</p>;
         if (getUnobfuscated() == 'O') return <p>&quot;harry potter wants his rent&quot; - R</p>;
-        if (getUnobfuscated() == 'R') return <p><img src={`${basePath}/img/chevron.png`}/> - T</p>;
+        if (getUnobfuscated() == 'R') return <p><img src={`${basePath}/img/hunt.jpg`}/> - T</p>;
         if (getUnobfuscated() == 'T') return <p>now go take a picture with all the qr codes and come find me - alex prosser</p>;
         return <p>this doesn&apos;t seem to help you...</p>
     }
