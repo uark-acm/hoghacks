@@ -8,7 +8,7 @@ const ScavengerHuntPage = () => {
 
     useEffect(() => {
         const params = new URL(document.location.href).searchParams;
-        if (params.get('fd') !== null) setLetter(params.get('fd'));
+        if (params.get('fd') !== null) setLetter(params.get('fd') as unknown as any);
     }, []);
 
     const getUnobfuscated = () => {
