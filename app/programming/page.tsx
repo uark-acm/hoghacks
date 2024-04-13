@@ -107,8 +107,6 @@ const ProgrammingContestPage: NextPage = () => {
                 <li>. 3 X X X 1 1 1 1 1 .</li>
                 <li>. 3 3 X X 5 5 5 . . .</li>
                 <li>. 3 3 X X 5 5 5 . . .</li>
-                <li>. 3 X X X X 1 1 1 1 .</li>
-                <li>. 3 X X X 1 1 1 1 1 .</li>
                 <li>. . 4 X X X X X 4 4 .</li>
                 <li>. . 4 X X X X X 4 4 .</li>
                 <li>. . . . . . . . . . .</li>
