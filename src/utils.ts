@@ -26,7 +26,6 @@ const parseCookies = (cookies: string) => {
 const writeCookies = (document: Document, cookies: Record<string, any>) => {
     let cookie = '';
     Object.entries(cookies).forEach(([key, value]) => {
-        console.log(`${key}=${value}`);
         cookie += `${key}=${value}`;
     });
     document.cookie = cookie;
