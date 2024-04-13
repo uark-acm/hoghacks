@@ -4,7 +4,7 @@ import { basePath } from '@/helper.mjs';
 import { useEffect, useState } from 'react';
 
 const ScavengerHuntPage = () => {
-    const [letter, setLetter] = useState<string>('');
+    const [letter, setLetter] = useState<string>('notloaded');
 
     useEffect(() => {
         const params = new URL(document.location.href).searchParams;
@@ -21,12 +21,12 @@ const ScavengerHuntPage = () => {
     }
 
     const getImageLink = () => {
-        if (getUnobfuscated() == 'S') return 'https://tenor.com/view/letter-s-gif-9063763';
-        if (getUnobfuscated() == 'P') return 'https://tenor.com/view/letter-p-gif-9063760';
-        if (getUnobfuscated() == 'O') return 'https://tenor.com/view/letter-o-gif-9063760';
-        if (getUnobfuscated() == 'R') return 'https://tenor.com/view/letter-r-gif-9063762';
-        if (getUnobfuscated() == 'T') return 'https://tenor.com/view/letter-t-gif-9063764';
-        return 'https://tenor.com/view/rick-roll-rick-ashley-never-gonna-give-you-up-gif-22113173';
+        if (getUnobfuscated() == 'S') return 'https://media.tenor.com/IQQVfdxyOIQAAAAi/dancing-letter-letter.gif';
+        if (getUnobfuscated() == 'P') return 'https://media.tenor.com/i9amW8b9cLgAAAAi/dancing-letter-letter.gif';
+        if (getUnobfuscated() == 'O') return 'https://media.tenor.com/dkCwZF-ltCQAAAAi/dancing-letter-letter.gif';
+        if (getUnobfuscated() == 'R') return 'https://media.tenor.com/C24-QePdofIAAAAi/dancing-letter-letter.gif';
+        if (getUnobfuscated() == 'T') return 'https://media.tenor.com/4A0Nel-xOFYAAAAi/dancing-letter-letter.gif';
+        return 'https://media1.tenor.com/m/yheo1GGu3FwAAAAd/rick-roll-rick-ashley.gif';
     }
 
     const getHint = () => {
@@ -39,9 +39,12 @@ const ScavengerHuntPage = () => {
     }
 
     return <>
-        <div className={'flex flex-col gap-y-5 justify-center items-center h-screen'}>
-            <img src={getImageLink()} />
-            {getHint()}
+        <div className={'flex flex-col gap-y-5 justify-center items-center h-screen text-white'}>
+            {
+                (letter != 'notloaded') && <>
+                    <img src={getImageLink()}/>{getHint()}
+                </>
+            }
         </div>
     </>
 }
