@@ -35,7 +35,7 @@ const ScavengerHuntPage = () => {
         if (getUnobfuscated() == 'O') return <p>&quot;harry potter wants his rent&quot; - R</p>;
         if (getUnobfuscated() == 'R') return <p><img src={`${basePath}/img/chevron.png`}/> - T</p>;
         if (getUnobfuscated() == 'T') return <p>now go take a picture with all the qr codes and come find me - alex prosser</p>;
-        return <p>this doesn't seem to help you...</p>
+        return <p>this doesn&apos;t seem to help you...</p>
     }
 
     return <>
