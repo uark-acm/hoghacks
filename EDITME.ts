@@ -23,9 +23,9 @@
  * You should see each of these names in the Tailwind classes, so you can see how they are edited
  */
 export const colors = {
-    primary: '#51b2a6',
-    secondary: '#2a6370',
-    tertiary: '#418e84',
+    primary: '#8e7cc3',
+    secondary: '#534586',
+    tertiary: '#7060a4',
     background: '#333333'
 };
 
@@ -40,8 +40,8 @@ export const isRegistrationOpen = false;
 /**
  * These are the starting and ending dates and times, which is controlled by the countdown timer and bar
  */
-export const startDate = '04/12/2024';
-export const endDate = '04/13/2024';
+export const startDate = '04/04/2025';
+export const endDate = '04/05/2025';
 export const countdownEndTime = '17:30:00';
 
 /**
