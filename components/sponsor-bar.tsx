@@ -21,13 +21,7 @@ const SponsorBar = () => {
                     <div className={'flex flex-col lg:flex-row items-center lg:justify-center p-[25px]'}>
                         {
                             tier.images.map(image => {
-                                if (typeof image === 'string') {
-                                    return <img className={'max-w-[66%] lg:max-w-[33%]'} src={`${basePath}/${image}`} key={`image-${image}`} /> 
-                                } else {
-                                    return <a className={'max-w-[66%] lg:max-w-[33%]'} href={image.link} key={`image-${image.src}`}>
-                                        <img src={`${basePath}/${image.src}`} />
-                                    </a>
-                                }
+                                return <img className={'max-w-[66%] lg:max-w-[33%]'} src={`${basePath}/${image}`} key={`image-${image}`} /> 
                             })
                         }
                     </div>
