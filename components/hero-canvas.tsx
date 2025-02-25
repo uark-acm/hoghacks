@@ -1,5 +1,15 @@
+/**
+ * components/hero-canvas.tsx
+ * 
+ * An animation that plays when the website is initially loaded
+ * 
+ * Author: Alex Prosser
+ * Date: 2/25/2025
+ */
+
 'use client';
 
+import { col } from 'motion/react-client';
 import { useRef, useEffect } from 'react';
 
 const useCanvas = (draw: (context: CanvasRenderingContext2D, frameCount: number, animationState: Record<string, any>) => void) => {
@@ -49,49 +59,85 @@ const useCanvas = (draw: (context: CanvasRenderingContext2D, frameCount: number,
 
 const HeroCanvas = (props: Record<string, any>) => {
     const canvasRef = useCanvas((context: CanvasRenderingContext2D, frameCount: number, animationState: Record<string, any>) => {
-        context.fillStyle = '#111111';
-        context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+        const columns = 225;
+        const size = Math.round(context.canvas.width / columns);
+        const rows = Math.round(context.canvas.height / size);
+        const branchCount = 12;
 
-        const columns = 75;
-
-        if (!animationState.positions) {
-            animationState.positions = [];
-            for (let i = 0; i < columns; i++) {
-                animationState.positions.push(Math.random());
-            }
+        const getColor = (mode: string, highlight: number) => {
+            const values: Record<string, number> = { DARK: 20, LIGHT: 30, LIGHTEST: 40 };
+            return `hsl(254, 38%, ${values[mode] + highlight}%)`;
         }
 
-        const lineSpacing = 3;
-        const speed = 6;
-        const size = Math.round(context.canvas.width / (columns * lineSpacing + 1));
-        const width = context.canvas.width / size, height = context.canvas.height / size;
-        const colors = ['#418e84', '#26544e', '#1c3d38'];
-        const alphaBuffer = 5;
-        for (let i = 0; i < width; i += lineSpacing) {
-            const random = animationState.positions[Math.floor(i / lineSpacing)];
-            const startY = (Math.floor(random * height) + Math.floor(frameCount / speed)) % height;
-            const tailLength = (1 - random) * 10 + 15;
-            
-            for (let j = 0; j < tailLength; j++) {
-                let y = startY - j;
-                if (y < 0) y += height;
+        const generateCircuitBranch = (beginning: { x: number, y: number }, flipped: boolean) => {
+            const current = structuredClone(beginning);
+            const pixels: { x: number, y: number, color: string }[] = [ { ...beginning, color: 'DARK' } ];
+            let chance = Math.random();
+            let count = 0;
+            while (chance > 0.01 || count < 8) {
+                if (count > columns / 2) break;
+                count++;
 
-                let index = 0;
-                if (j >= ((random > 0.5) ? 1 : 2)) index++;
-                if (j > ((random * 5) + 5)) index++;
+                current.x = current.x + (flipped ? -1 : 1);
+                chance = Math.random();
 
-                let alpha = 1;
-                if (y < alphaBuffer) {
-                    alpha = y / alphaBuffer;
-                } else if (y > height - alphaBuffer) {
-                    alpha = (height - y) / alphaBuffer;
+                // generate some amount of height
+                if (chance < 0.05) {
+                    let height = Math.floor(Math.random() * 11) - 5;
+                    if (height === 0) height = (Math.random() > 0.5) ? 1 : -1;
+                    const direction = Math.sign(height);
+
+                    for (let i = 0; i < Math.abs(height); i++) {
+                        if (current.y <= 0 || current.y >= rows - 1) break;
+
+                        current.y += direction;
+                        pixels.push({ x: current.x, y: current.y, color: (direction === -1) ? 'DARK' : 'LIGHT' });
+                        current.y += Math.sign(height);
+                        pixels.push({ x: current.x, y: current.y, color: (direction === -1) ? 'LIGHT' : 'DARK' });
+                        current.x = current.x + (flipped ? -1 : 1);
+                        count++;
+                    }
+                    current.y += Math.sign(height);
                 }
 
-                context.save();
-                context.globalAlpha = alpha;
-                context.fillStyle = colors[index];
-                context.fillRect(i * size, y * size, size, size);
-                context.restore();
+                pixels.push({ x: current.x, y: current.y, color: 'LIGHT' });
+                chance = Math.random();
+            }
+
+            // place final pixels
+            for (let i = -1; i <= 1; i++) {
+                for (let j = -1; j <= 1; j++) {
+                    let color = 'LIGHTEST';
+                    if (i === 0 && j === 0) color = 'DARK';
+                    pixels.push({ x: current.x + i, y: current.y + j, color });
+                }   
+            }
+
+            return pixels;
+        }
+
+        if (!animationState.branches) {
+            animationState.branches = [];
+            
+            for (let i = 0; i < branchCount; i++) {
+                let y = Math.round(rows * (i / branchCount));
+                animationState.branches.push(generateCircuitBranch({ x: 0, y }, false));
+                animationState.branches.push(generateCircuitBranch({ x: columns - 1, y }, true));
+            }
+        } else {
+            context.fillStyle = '#111111';
+            context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+
+            for (let i = 0; i < branchCount * 2; i++) {
+                for (let j = 0; j < animationState.branches[i].length; j++) {
+                    let highlight = 0;
+                    let dist = Math.max(0, j - (Math.floor(frameCount / 5) % animationState.branches[i].length));
+
+                    if (dist <= 5) highlight = dist * 8;
+
+                    context.fillStyle = getColor(animationState.branches[i][j].color, highlight);
+                    context.fillRect(animationState.branches[i][j].x * size, animationState.branches[i][j].y * size, size, size);
+                }
             }
         }
     });

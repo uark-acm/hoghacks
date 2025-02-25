@@ -13,8 +13,8 @@
  * - Sponsors
  * - FAQs
  * 
- * Author: Alex Prosser, Jack Norris
- * Date: 4/4/2024
+ * Author: Alex Prosser, Jack Norris, Jordi Castro
+ * Date: 2/25/2025
  */
 
 /**
@@ -32,10 +32,10 @@ export const colors = {
 /**
  * These are the external links to different aspects of the site 
  */
-export const discordLink = 'https://discord.gg/shVphSrXe2';
-export const registrationLink = 'https://forms.gle/YambmVKF5ZLQjKYo8';
+export const discordLink = 'https://discord.gg/aaWeSKSDHT';
+export const registrationLink = 'https://forms.gle/hZRenakyN2XvBqKb8';
 export const mailingLink = 'https://forms.gle/gFwrFeArJmq1YCMH9';
-export const isRegistrationOpen = false;
+export const isRegistrationOpen = true;
 
 /**
  * These are the starting and ending dates and times, which is controlled by the countdown timer and bar
@@ -47,79 +47,26 @@ export const countdownEndTime = '17:30:00';
 /**
  * Here is information for the location
  */
-export const mapLocation = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3225.084495124262!2d-94.17564222348403!3d36.06704310868277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c96ee74061304d%3A0x5bb6345c4e6ff9cf!2sHillside%20Auditorium!5e0!3m2!1sen!2sus!4v1708554171130!5m2!1sen!2sus';
-export const locationLink = 'https://maps.app.goo.gl/Sk4qGu88Sn4H5koB7';
-export const locationInformation = ['Hillside Auditorium (HILL) Room 206', '902 W Dickson St', 'Fayetteville, AR 72701'];
+export const mapLocation = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.278182185351!2d-94.17292593772618!3d36.06690674653809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c96f8f3524e05d%3A0xa6bac06cfca5b525!2sJ.B.%20Hunt%20Transport%20Services%20Inc.%20Center%20for%20Academic%20Excellence%20(JBHT)!5e0!3m2!1sen!2sus!4v1740464106119!5m2!1sen!2sus';
+export const locationLink = 'https://maps.app.goo.gl/kdLZXGXFaAatTo7h8';
+export const locationInformation = ['J.B. Hunt Transport Services Inc. Center for Academic Excellence', '227 N. Harmon Ave.', 'Fayetteville, AR 72701'];
 
 /**
  * Here is the schedules, which are just listed as a title and time. Separated by the day which they occur
  */
 export const day1Schedule = [
     {
-        name: 'Opening Ceremony',
-        time: '5:30 PM',
-    },
-    {
-        name: 'Dinner',
-        time: '8:00 PM',
-    },
-    {
-        name: 'Using GitHub and Github Copilot Workshop',
-        time: '7:00 PM'
-    },
-    {
-        name: 'Web and Mobile Dev 101 Workshop',
-        time: '9:00 PM'
-    },
-    {
-        name: 'Mini Programming Competition',
-        time: '10:00 PM'
+        name: 'To Be Determined!',
+        time: 'TBD',
     }
 ];
 
 export const day2Schedule = [
     {
-        name: 'Midnight Snack',
-        time: '12:00 AM',
-    },
-    {
-        name: '3 AM Trivia',
-        time: '3:00 AM'
-    },
-    {
-        name: 'Breakfast',
-        time: '8:00 AM'
-    },
-    {
-        name: 'Scavenger Hunt',
-        time: '9:00 AM'
-    },
-    {
-        name: 'Bob Ross Workshop',
-        time: '11:00 AM'
-    },
-    {
-        name: 'Lunch',
-        time: '12:30 PM'
-    },
-    {
-        name: 'Presentation Workshop',
-        time: '1:00 PM'
-    },
-    {
-        name: 'Projects Stop!',
-        time: '4:00 PM'
-    },
-    {
-        name: 'Judging',
-        time: '4:30 PM'
-    },
-    {
-        name: 'Closing Ceremony',
-        time: '6:00 PM'
-    },
+        name: 'To Be Determined!',
+        time: 'TBD',
+    }
 ];
-
 
 /**
  * The sponsors can either be just an image url, or take the format of { src: <image_url>, link: <sponsor_link> } depending on what the sponsors want
@@ -133,26 +80,8 @@ export const sponsors = [
     {
         name: 'Gold',
         color: '#ffd700',
-        images: ['img/sponsors/supplypike.png', 'img/sponsors/arcbest.png']
-    },
-    {
-        name: 'Silver',
-        color: '#c0c0c0',
-        images: ['img/sponsors/oei.png']
-    },
-    {
-        name: 'Bronze',
-        color: '#cd7f32',
-        images: ['img/sponsors/netsmart.png', 'img/sponsors/garmin.png']
-    },
-    {
-        name: 'Partners',
-        color: '#000000',
-        images: [
-            { src: 'img/sponsors/stand-out-stickers-logo.png', link: 'http://hackp.ac/mlh-StandOutStickers-hackathons' },
-            'img/sponsors/mlh.png'
-        ]
-    },
+        images: ['img/sponsors/supplypike.png']
+    }
 ];
 
 /**
@@ -161,7 +90,7 @@ export const sponsors = [
 export const faqs = [
     {
         question: 'When do signups close?',
-        answer: 'Around April 1st @ 11:59 PM or after we get 200 participants, whichever comes first.',
+        answer: 'Around April 1st @ 11:59 PM or after we get 175 participants, whichever comes first.',
     },
     {
         question: 'Do I need to come in with a team?',
@@ -188,7 +117,7 @@ export const faqs = [
         answer: 'There can be 4-6 people per team.',
     },
     {
-        question: 'Can I have grad students on my team?',
+        question: 'Can I have graduate students on my team?',
         answer: 'Yes, but only 1-2 people per team.',
     },
     {

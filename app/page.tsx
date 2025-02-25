@@ -1,12 +1,10 @@
 /**
  * app/page.tsx
  * 
- * This page handles the judge's side of things where they can judge different projects and we can compile all the data to find the final results
+ * The main page with the registration content, sponsors, map information, and a FAQ 
  * 
- * This also handles an admin to create projects and assign judges without need to manually edit the Firebase database
- * 
- * Author: Alex Prosser, Jack Norris
- * Date: 4/4/2024
+ * Author: Alex Prosser, Jack Norris, Jordi Castro
+ * Date: 2/25/2025
  */
 
 'use client';
@@ -21,7 +19,6 @@ import styles from '@/styles/home.module.css';
 import SponsorBar from '@/components/sponsor-bar';
 import { FAQ } from '@/components/faq';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const Home: NextPage = () => {
     const scrollToTop = () => {
@@ -45,14 +42,7 @@ const Home: NextPage = () => {
         day: 'numeric'
     });
 
-    return <>
-        {/* ~~~~~ MLH Banner ~~~~~ */}
-        {/* <div>
-            <a id="mlh-trust-badge" className='right-0 md:right-[50px]' href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2024-season&utm_content=white" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2024/mlh-trust-badge-2024-gray.svg" alt="Major League Hacking 2024 Hackathon Season" /></a>
-        </div> */}
-
-
-        
+    return <>        
         {/* ~~~~~ Hero Section ~~~~~ */}
         <div className={styles['hero-section']}>
             <HeroCanvas />
@@ -130,30 +120,13 @@ const Home: NextPage = () => {
 
             {/* ~~~~~ Sponsors ~~~~~ */}
             <div className={'p-[25px] mb-[25px]'}>
-                <p className={'text-2xl lg:text-4xl text-white text-center lg:text-start mb-[25px] pressstart'}>Interested In Sponsoring This Event?</p>
-                <div
-                    className='flex flex-row items-center justify-center gap-x-2' 
-                >
-                    <p
-                        className='text-white text-center'
-                    >
-                        Reach out to alprosse@uark.edu or fill out the form 
-                    </p>
-                    <Link
-                        className='cursor-pointer underline text-white hover:text-th-primary transition'
-                        href="https://www.google.com"
-                    >
-                        here
-                    </Link>
-                </div>
-                {/* <SponsorBar /> */}
+                <SponsorBar />
             </div>
         </div>
 
         {/* ~~~~~ Footer ~~~~~ */}
         <div className={'bg-th-primary text-white text-center py-2'}>
             <p className={'text-sm lg:text-lg mb-[10px] pressstart'}>For other questions, ask on the <a href={discordLink} className={'text-th-secondary hover:text-lilac-800 transition-all'}>Discord</a>!</p>
-            {/* <p className='text-s lg:text-xl text-th-secondary pressstart'><a href='http://hackp.ac/coc'>MLH Code of Conduct</a></p> */}
             <a onClick={scrollToTop} className={'text-xs lg:text-md mb-[10px] hover:cursor-pointer pressstart hover:text-th-secondary transition duration-500 ease-in-out delay-75'}>Back To Top ▲</a>
         </div>
 
@@ -162,15 +135,7 @@ const Home: NextPage = () => {
             className='group/discord fixed right-4 bottom-4 w-12 h-12 rounded-full transition-all'
             href={discordLink}
         >
-            <Image
-                className='rounded-full sm:group-hover/discord:animate-wobble group-hover/discord:scale-100 transition ease-out'
-                src='/img/discordIcon.png'
-                fill
-                sizes="50px"
-                alt="media item"
-            >
-
-            </Image>
+            <img className='rounded-full sm:group-hover/discord:animate-wobble group-hover/discord:scale-100 transition ease-out' src={`${basePath}/img/discord.png`} alt="Discord Logo" />
             <div
                 className='fixed right-20 bottom-4 w-36 h-12 bg-neutral-700/60 rounded-xl opacity-0 transform translate-x-4 sm:group-hover/discord:opacity-100 group-hover/discord:translate-x-0 transition-all duration-500 ease-in-out flex justify-center items-center'
             >

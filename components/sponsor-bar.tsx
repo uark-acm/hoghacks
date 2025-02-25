@@ -1,9 +1,16 @@
+/**
+ * components/sponsor-bar.tsx
+ * 
+ * Allows the addition of sponsor tiers and sponsor as well as information to reach out for sponsorships
+ * 
+ * Author: Alex Prosser, Jordi Castro
+ * Date: 2/25/2025
+ */
+
 'use client';
 
 import { sponsors } from '@/EDITME';
 import { basePath } from '@/helper.mjs';
-
-// TODO: add in some scaling for the images
 
 const SponsorBar = () => {
     return <div className={'flex flex-col text-white text-center'}>
@@ -27,7 +34,16 @@ const SponsorBar = () => {
                 </div>
             })
         }
-        <p className={'text-lg'}>For any sponsorship inquiries, please contact jtn006@uark.edu.</p>
+        <p className={'text-xl lg:text-3xl text-white text-center mb-[25px] pressstart'}>Interested In Sponsoring This Event?</p>
+        <div
+            className='flex flex-row items-center justify-center gap-x-2' 
+        >
+            <p
+                className='text-white text-center'
+            >
+                Reach out to alprosse@uark.edu!
+            </p>
+        </div>
     </div>
 }
 
