@@ -32,7 +32,7 @@ export const colors = {
 /**
  * These are the external links to different aspects of the site 
  */
-export const discordLink = 'https://discord.gg/aaWeSKSDHT';
+export const discordLink = 'https://discord.gg/kdfc53zSDn';
 export const registrationLink = 'https://forms.gle/hZRenakyN2XvBqKb8';
 export const mailingLink = 'https://forms.gle/gFwrFeArJmq1YCMH9';
 export const isRegistrationOpen = true;
