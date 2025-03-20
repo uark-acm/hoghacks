@@ -21,7 +21,9 @@ const SponsorBar = () => {
                     <div className={'flex flex-col lg:flex-row items-center lg:justify-center p-[25px]'}>
                         {
                             tier.images.map(image => {
-                                return <img className={'max-w-[66%] lg:max-w-[33%]'} src={`${basePath}/${image}`} key={`image-${image}`} /> 
+                                let width = 'max-w-[66%] lg:max-w-[33%]'
+                                if (tier.name == 'Bronze') width = 'max-w-[25%] lg:max-w-[15%]'
+                                return <img className={width} src={`${basePath}/${image}`} key={`image-${image}`} /> 
                             })
                         }
                     </div>
