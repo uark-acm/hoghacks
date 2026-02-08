@@ -32,16 +32,16 @@ export const colors = {
 /**
  * These are the external links to different aspects of the site 
  */
-export const discordLink = 'https://discord.gg/kdfc53zSDn';
-export const registrationLink = 'https://forms.gle/hZRenakyN2XvBqKb8';
+export const discordLink = 'https://discord.gg/QgCVbGW7W5';
+export const registrationLink = 'https://forms.gle/eUmZ8ZJJMwSbdPry9';
 export const mailingLink = 'https://forms.gle/gFwrFeArJmq1YCMH9';
 export const isRegistrationOpen = true;
 
 /**
  * These are the starting and ending dates and times, which is controlled by the countdown timer and bar
  */
-export const startDate = '04/04/2025';
-export const endDate = '04/05/2025';
+export const startDate = '04/03/2026';
+export const endDate = '04/04/2026';
 export const countdownEndTime = '17:30:00';
 
 /**
