@@ -55,81 +55,9 @@ export const locationInformation = ['J.B. Hunt Transport Services Inc. Center fo
  * Here is the schedules, which are just listed as a title and time. Separated by the day which they occur
  */
 export const day1Schedule = [
-    {
-        name: 'Sign-in Opens',
-        time: '4:45 PM',
-    },
-    {
-        name: 'Opening Ceremony',
-        time: '5:30 PM',
-    },
-    {
-        name: 'Dinner with Pizza',
-        time: '6:00 PM',
-    },
-    {
-        name: 'Dual Workshop with Website Dev and Mobile Dev with Mentors',
-        time: '8:00 PM',
-    },
-    {
-        name: 'Final Ideas Due',
-        time: '10:30 PM',
-    },
-    {
-        name: '(Minigame) Scavenger Hunt Starts',
-        time: '11:00 PM',
-    }
 ];
 
 export const day2Schedule = [
-    {
-        name: 'Midnight Snack with Taco Bell',
-        time: '12:00 AM',
-    },
-    {
-        name: '(Minigame) 3 AM Trivia',
-        time: '3:00 AM',
-    },
-    {
-        name: 'Breakfast with Donuts and Coffee',
-        time: '8:00 AM',
-    },
-    {
-        name: 'Workshop for Deployment and Hosting with Mentor',
-        time: '9:30 AM',
-    },
-    {
-        name: '(Minigame) Bob Ross Microsoft Paint Challenge',
-        time: '11:00 AM',
-    },
-    {
-        name: 'Lunch with Chick-fil-A',
-        time: '12:30 PM',
-    },
-    {
-        name: 'Workshop for Presentations with Mentor',
-        time: '1:00 PM',
-    },
-    {
-        name: '(Minigame) Scavenger Hunt Ends',
-        time: '2:00 PM',
-    },
-    {
-        name: 'Projects Due',
-        time: '4:00 PM',
-    },
-    {
-        name: 'Judging Starts',
-        time: '4:15 PM',
-    },
-    {
-        name: 'Judging Ends',
-        time: '5:45 PM',
-    },
-    {
-        name: 'Closing Ceremony',
-        time: '6:00 PM',
-    },
 ];
 
 /**
@@ -144,11 +72,11 @@ export const sponsors = [
     {
         name: 'Gold',
         color: '#ffd700',
-        images: ['img/sponsors/supplypike.png', 'img/sponsors/arcbest.png']
+        images: ['img/sponsors/rocket.png']
     },
     {
-        name: 'Bronze',
-        color: '#CD7F32',
+        name: 'Silver',
+        color: '#b3b1af',
         images: ['img/sponsors/phillips66.png']
     }
 ];

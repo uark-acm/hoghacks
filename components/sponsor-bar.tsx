@@ -37,7 +37,7 @@ const SponsorBar = () => {
             <p
                 className='text-white text-center'
             >
-                Reach out to alprosse@uark.edu!
+                Reach out to jwc025@uark.edu!
             </p>
         </div>
     </div>
