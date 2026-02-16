@@ -77,7 +77,7 @@ export const sponsors = [
     {
         name: 'Silver',
         color: '#b3b1af',
-        images: ['img/sponsors/phillips66.png']
+        images: ['img/sponsors/ConocoPhillips.png']
     }
 ];
 
