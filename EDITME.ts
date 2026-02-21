@@ -55,9 +55,17 @@ export const locationInformation = ['J.B. Hunt Transport Services Inc. Center fo
  * Here is the schedules, which are just listed as a title and time. Separated by the day which they occur
  */
 export const day1Schedule = [
+    {
+        name: 'To Be Determined',
+        time: 'TBD'
+    }
 ];
 
 export const day2Schedule = [
+    {
+        name: 'To Be Determined',
+        time: 'TBD'
+    }
 ];
 
 /**
