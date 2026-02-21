@@ -66,7 +66,7 @@ const HeroCanvas = (props: Record<string, any>) => {
 
         const getColor = (mode: string, highlight: number) => {
             const values: Record<string, number> = { DARK: 20, LIGHT: 30, LIGHTEST: 40 };
-            return `hsl(254, 38%, ${values[mode] + highlight}%)`;
+            return `hsl(230, 38%, ${values[mode] + highlight}%)`;
         }
 
         const generateCircuitBranch = (beginning: { x: number, y: number }, flipped: boolean) => {

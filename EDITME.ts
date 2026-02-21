@@ -23,9 +23,9 @@
  * You should see each of these names in the Tailwind classes, so you can see how they are edited
  */
 export const colors = {
-    primary: '#8e7cc3',
-    secondary: '#534586',
-    tertiary: '#7060a4',
+    primary: '#5451fb',
+    secondary: '#4f54f5',
+    tertiary: '#3a44dc',
     background: '#333333'
 };
 
