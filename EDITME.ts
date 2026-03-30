@@ -17,6 +17,9 @@
  * Date: 2/25/2025
  */
 
+import { time } from "console";
+import { color } from "motion/react";
+
 /**
  * These control the colors seen on the website
  * 
@@ -56,15 +59,55 @@ export const locationInformation = ['J.B. Hunt Transport Services Inc. Center fo
  */
 export const day1Schedule = [
     {
-        name: 'To Be Determined',
-        time: 'TBD'
+        name: 'Sign-in Opens',
+        time: '4:45 PM',
+    },
+    {
+        name: 'Opening Ceremony',
+        time: '5:30 PM',
+    },
+    {
+        name: 'Dinner',
+        time: '6:30 PM',
     }
 ];
 
 export const day2Schedule = [
     {
-        name: 'To Be Determined',
-        time: 'TBD'
+        name: 'Midnight Snack',
+        time: '12:00 AM',
+    },
+    {
+        name: '(minigame) 3 AM Trivia',
+        time: '3:00 AM',
+    },
+    {
+        name: 'Breakfast',
+        time: '8:00 AM',
+    },
+    {
+        name: 'Microsoft Paint Challenge',
+        time: '11:00 AM',
+    },
+    {
+        name: 'Lunch',
+        time: '12:30 PM',
+    },
+    {
+        name: 'Projects Due',
+        time: '4:00 PM',
+    },
+    {
+        name: 'Judging Starts',
+        time: '4:15 PM',
+    },
+    {
+        name: 'Judging Ends',
+        time: '5:45 PM',
+    },
+    {
+        name: 'Closing Ceremony',
+        time: '6:00 PM',
     }
 ];
 
@@ -86,6 +129,11 @@ export const sponsors = [
         name: 'Silver',
         color: '#b3b1af',
         images: ['img/sponsors/ConocoPhillips.png']
+    },
+    {
+        name: 'Bronze',
+        color: '#cd7f32',
+        images: ['img/sponsors/Garmin.png'],
     }
 ];
 
